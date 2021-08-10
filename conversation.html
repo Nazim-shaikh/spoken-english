@@ -6,6 +6,9 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://code.responsivevoice.org/responsivevoice.js?key=iUJjmUm1"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      
       <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
@@ -23,91 +26,69 @@
     <a href="#p7" class="button">Collective Noun</a><br><br>-->
 </center>
 
-<ul>
-    <li><a  href="#p1">Railway Station </a></li>
-    <li><a href="#p2">Market</a></li>
-    <li><a href="#p3">Bus Station</a></li>
-    <li><a href="#p4">School</a></li>
-    <li><a href="#p5">Office</a></li>
-    <li><a href="#p6">House</a></li>
-    <li><a href="#p7">Friend</a></li>
-  </ul>
 
-       <div id="para"><br>
-       <div id="para">
-	   <p id="p1"><p style="color: rgba(58, 187, 19, 0.76); font-size: 30px; " >Railway Station</style></p>
-       Railway-Enquiry:  Good Morning.<br>
-       Passenger: Good Morning.<br>
-       Railway-Enquiry: Yes! How can I help you sir?<br>
-       Passenger: I have lost my luggage.<br>
-       Railway-Enquiry: Which train did you board? And When?<br>
-       Passenger: This happened yesterday on the Shatabdi Express from Delhi to Mumbai.<br>
-       Railway-Enquiry: What was your boarding time?<br>
-       Passenger: 12’o clock<br>
-       Railway-Enquiry: Can you please brief me about your brags and luggage?<br>
-       Passenger: My American Tourister bag was red in color and is marked with a big “R” letter.<br> 
-       Railway-Enquiry: Please show me your ticket? <br>
-       Passenger: Sure sir, here it is.<br>
-       Railway-Enquiry: You will need to submit your ID card for complaint registration..<br>
-       Passenger: Sir, can I submit my license as ID proof?<br>
-       Railway-Enquiry: Sure. We will contact you soon after investigations. Please give us 24
-       hours.<br>
-       Passenger: Thank you, sir.I will wait for your call eagerly.<br>
-       
-</div>
-    <div class="container-audio">
-        <audio controls>
-                   <source src="rail audio/rali demo.mp3" type="audio/ogg">
-                   Your browser dose not Support the audio Tag
-               </audio><br>
-               </div>
-<a href="#p" class="button1">⇪</a></p>
-</div><br>
- <div id="para">
-<p style="color: rgba(58, 187, 19, 0.76); font-size: 30px; " id="p2" >Common Noun:</style></p>
-A common noun is a name for something which is common for many things,
-person, or places.<br>
-Example: Country, city, Students etc.<br>
-So, a common noun is a word that indicates a person, place or things in general.<br><a href="#p" class="button1">⇪</a></p>
-</div><br>
-<div id="para">
-<p style="color: rgba(58, 187, 19, 0.76); font-size: 30px; font-size:30px ;" id="p3" >Abstract Noun:</p></style>
-An abstract noun is a word for something that cannot be seen. It has no physical
-existence. Generally, it refers to ideas, qualities, and conditions.<br>
-Example: Truth, lies, happiness, sorrow, time, friendship, humor, patriotism, etc.<br>
-<a href="#p" class="button1">⇪</a></p>
-</div><br>
-<div id="para">
-<p style="color: rgba(58, 187, 19, 0.76); font-size: 30px; " id="p4">Concrete Noun:</p></style>
-A concrete noun refers to the things we see and have physical existence.
-Example: Chair, table, bat, ball, water, money, sugar, etc.<br>
-<a href="#p" class="button1">⇪</a></p>
-</div><br>
-<div id="para">
-<p style="color: rgba(58, 187, 19, 0.76); font-size: 30px; " id="p5">Countable Noun:</p></style>
-The nouns that can be counted are called countable nouns.<br>
-Example: Chair, table, bat, ball, etc. (you can say 1 chair, 2 chairs, 3 chairs – so
-chairs are countable)<br>
-<a href="#p" class="button1">⇪</a></p>
-</div><br>
-<div id="para">
-<p style="color: rgba(58, 187, 19, 0.76); font-size: 30px; " id="p6">Non-countable Noun:</p></style>
-The nouns that cannot be counted are called non-countable nouns.<br>
-Example: Water, sugar, oil, salt, etc. (you cannot say “1 water, 2 water, 3 water”
-because water is not countable)<br>
-<a href="#p" class="button1">⇪</a></p>
-</div><br>
-<div id="para">
-<p style="color: rgba(58, 187, 19, 0.76); font-size: 30px; " id="p7">Collective Noun:</p></style>
-A collective noun is a word for a group of things, people, or animals, etc.<br>
-Example: family, team, jury, cattle, etc.<br>
-Compound Noun:<br>
-A Compound noun is made up of two or more existing words.<br>
-Example: Playground, Rainbow, Sunflower.</p>
-<a href="#p" class="button1">⇪</a></p>
-</div>
-</div>
+ 
+   <script>
+     
+   
 
+</script>
+
+</head>
+<body>
+  <script>
+    let aiapi = "XYG0lczSVL7d";
+
+    window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
+    let finalTranscript = '';
+   
+    let recognition = new window.SpeechRecognition();
+    recognition.interimResults = true;
+    recognition.maxAlternatives = 10;
+    recognition.continuous = true;
+    recognition.onresult = (event) => {
+      let interimTranscript = '';
+      for (let i = event.resultIndex, len = event.results.length; i < len; i++) {
+        let transcript = event.results[i][0].transcript;
+        if (event.results[i].isFinal) {
+          finalTranscript += transcript;
+            document.getElementById("show").innerHTML = "Me :"+ transcript;
+          console.log(transcript);
+
+          async function fetchText() {
+          let response = await fetch('https://api.pgamerx.com/v4/ai?message='+transcript, {
+            method: "GET",
+            headers: {"x-api-key": aiapi}
+          });
+          let data = await response.text();          
+          let voiceout = JSON.parse(data);
+          console.log(voiceout[0]);
+          document.getElementById("show").innerHTML = "Robot :"+ voiceout[0].message;
+         responsiveVoice.speak(voiceout[0].message, "UK English Female");
+}
+fetchText();
+
+         
+      }
+    } 
+}
+    
+
+    function startButton(event) {
+
+    recognition.start();
+  
+}
+
+ recognition.start();
+  </script>
+  <div id="show"></div>
+
+<button id="start_button" onclick="startButton(event)"> Start</button>
+
+ 
+</body>
+</html>
 	   
     </body>
 </html>
