@@ -5,21 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>AI Bot</title>
-
-    <script src="https://code.responsivevoice.org/responsivevoice.js?key=iUJjmUm1"></script>
+  <script src="https://code.responsivevoice.org/responsivevoice.js?key=iUJjmUm1"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
    <script>
      
    
-
 </script>
-
 </head>
 <body>
   <script>
     let aiapi = "XYG0lczSVL7d";
-
     window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
     let finalTranscript = '';
    
@@ -35,7 +30,6 @@
           finalTranscript += transcript;
             document.getElementById("show").innerHTML = "Me :"+ transcript;
           console.log(transcript);
-
           async function fetchText() {
           let response = await fetch('https://api.pgamerx.com/v4/ai?message='+transcript, {
             method: "GET",
@@ -48,25 +42,19 @@
          responsiveVoice.speak(voiceout[0].message, "UK English Female");
 }
 fetchText();
-
          
       }
     } 
 }
     
-
     function startButton(event) {
-
     recognition.start();
   
 }
-
  recognition.start();
   </script>
   <div id="show"></div>
-
 <button id="start_button" onclick="startButton(event)"> Start</button>
-
  
 </body>
 </html>
